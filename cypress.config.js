@@ -56,83 +56,10 @@ module.exports = defineConfig({
  
   e2e: {
     setupNodeEvents,
-   specPattern: 'cypress/integration/examples/*.js'
-  // specPattern: 'cypress/integration/examples/BDD/*.feature'
+  //  specPattern: 'cypress/integration/examples/*.js'
+   specPattern: 'cypress/integration/examples/BDD/*.feature'
  
   },
 });
  
 //messages -> json file ->html
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*const { defineConfig } = require("cypress");
-
-const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
-const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
-async function setupNodeEvents(on, config) {
-  await preprocessor.addCucumberPreprocessorPlugin(on, config);
-  on("file:preprocessor", browserify.default(config));
-  return config;
-}
-
-module.exports = defineConfig({
-
-  defaultCommandTimeout: 6000,
-  projectId: "tw3a88",
-  projectId: "d8zziq",
-  retries: {
-    runMode: 1,
-    },
-  env:{
-
-     url: "https://rahulshettyacademy.com/"
-  },
-
-  // "reporter": "cypress-mochawesome-reporter",
-  // "reporterOptions": {
-  //   "reportDir": "cypress/reports",
-  //   "charts": true,
-  //   "reportPageTitle": "My Test Suite",
-  //   "embeddedScreenshots": true,
-  //   "inlineAssets": true
-  // },
-  // "video": false,
-
-  e2e: {
-    setupNodeEvents,
-    specPattern: 'cypress/integration/examples/BDD/*.feature'
-  },
-});
-
-// npm i --save-dev cypress-mochawesome-reporter*/

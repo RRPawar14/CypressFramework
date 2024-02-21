@@ -1,7 +1,8 @@
 
-import HomePage from "../pageObject1/HomePage1"
-import ProductList from "../pageObject1/ProductLists"
+import {homePage1} from "../../../pageObject1/HomePage1";
+import {productLists} from "../../../pageObject1/ProductLists";
 import { Given, Then, When } from "@badeball/cypress-cucumber-preprocessor";
+
 
 // Given I open Ecommerce Page
 Given('I open Ecommerce Page',()=>
@@ -9,17 +10,19 @@ Given('I open Ecommerce Page',()=>
     cy.visit(Cypress.env("url")+'/angularpractice/')
 })
 //     When I add items to cart
-When('I add items to cart',()=>
+When('I add items to cart',function()
 {
-    HomePage.getShopLink().click()
+    
+    homePage1.getShopLink().click()
+
         this.data.productName.forEach(function(element) {
             
             cy.SelectProduct(element)
         });
-        ProductList.goToCheckOut().click()
+        productLists.goToCheckOut().click()
 })
-//     And Validate the total prices
-And('Validate the total prices',()=>
+//     And Validate the total price
+When('Validate the total price',function()
 {   
     var sum=0
     cy.get('tr td:nth-child(4) strong').each(($el,index,$list)=>{
@@ -41,7 +44,8 @@ And('Validate the total prices',()=>
 
     })
 })
-//     Then select the country submit and verify Thankyou
+
+//   Then select the country submit and verify Thankyou
 Then('select the country submit and verify Thankyou',()=>
 {
     
@@ -61,19 +65,19 @@ Then('select the country submit and verify Thankyou',()=>
 // When I fill the form details
 When('I fill the form details',function()
 {
-    HomePage.getEditBox().type(this.data.name)
-    HomePage.SelectGender().select(this.data.gender)
+    homePage1.getEditBox().type(this.data.name)
+    homePage1.SelectGender().select(this.data.gender)
 })
 // And validate the forms behaviour
-And('validate the forms behaviour',function()
+When('validate the forms behaviour',function()
 {
-    HomePage.getTwowayDataBinding().should('have.value',this.data.name)
-    HomePage.getEditBox().should('have.attr','minlength','2')
-    HomePage.getRadioButton().should('be.disabled')
+    homePage1.getTwowayDataBinding().should('have.value',this.data.name)
+    homePage1.getEditBox().should('have.attr','minlength','2')
+    homePage1.getRadioButton().should('be.disabled')
     Cypress.config('defaultCommandTimeout',8000)
 })
 // Then select the Shop Page
 Then('select the Shop Page',()=>
 {
-    HomePage.getShopLink().click()
+    homePage1.getShopLink().click()
 })

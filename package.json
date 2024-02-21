@@ -1,30 +1,37 @@
 {
-  "name": "cypressautomation",
+  "name": "automation",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
+    "test": "npx cypress run",
     "headTest": "npm run test -- --headed",
     "chromeTest": "npm run test -- --browser chrome",
-    "recordDashboardTest": "npm run test -- --record --key 5269a288-7cbf-4fa1-a115-6f92552a0318",
-    "multiSpec": "cypress run multiSpeccypress run test --spec 'cypress/integration/examples/test1.js,cypress/integration/examples/test2.js'"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@cypress/browserify-preprocessor": "^3.0.2",
-    "cypress": "^13.6.4",
-    "cypress-iframe": "^1.0.1",
-    "cypress-mochawesome-reporter": "^3.8.1",
-    "cypress-sql-server": "^1.0.0"
-  },
-  "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^20.0.1"
+    "recordDashBoardTest": "npm run test -- --record --key fa423514-5a84-42a7-b6a0-b5e7191bba12 --reporter mochawesome",
+    "GreenKartTest": "npm run test -- --spec \"cypress/integration/GreenKart/*\""
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true,
-    "filterSpecs": true,
-    "omitFiltered": true
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/integration/examples/BDD/ecommerce/*.js",
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
+  },
+  "author": "RahulShetty",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.17.4",
+    "cypress-sql-server": "^1.0.0",
+    "mocha": "^10.1.0",
+    "multiple-cucumber-html-reporter": "^3.0.1",
+    "neat-csv": "5.1.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.5",
+    "@cypress/browserify-preprocessor": "latest",
+    "convert-excel-to-json": "^1.7.0",
+    "cypress-iframe": "^1.0.1"
   }
 }
+ 

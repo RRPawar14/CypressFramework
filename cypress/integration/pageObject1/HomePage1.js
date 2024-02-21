@@ -1,21 +1,25 @@
-class homePage{
-
-
-    getEditBox(){
+class HomePage1
+{
+    getEditBox()
+    {
        return cy.get(':nth-child(1) > .form-control')
     }
-    SelectGender(){
+    SelectGender()
+    {
         return cy.get('select')
     }
-    getTwowayDataBinding(){
+    getTwowayDataBinding()
+    {
         return cy.get(':nth-child(4) > .ng-pristine')
     }
-    getRadioButton(){
+    getRadioButton()
+    {
        return cy.get('#inlineRadio3')
     }
-    getShopLink(){
+    getShopLink()
+    {
         return cy.get(':nth-child(2) > .nav-link')
     }
 }
 
-export default homePage
+export default HomePage1;
